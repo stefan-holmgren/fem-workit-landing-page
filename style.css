@@ -73,6 +73,8 @@ canvas {
 
   --p-body-y: 2rem;
   --p-body-x: 1rem;
+
+  --curve: 40vw;
 }
 
 body {
@@ -157,11 +159,11 @@ a.button {
 .section-hero::before {
   content: "";
   position: absolute;
-  width: 500%;
-  aspect-ratio: 1/2;
-  border-bottom-left-radius: 50% 30%;
-  border-bottom-right-radius: 50% 30%;
-  left: -200%;
+  height: 100vh;
+  width: 200vw;
+  transform: translateX(-50%);
+  border-bottom-left-radius: 50% var(--curve);
+  border-bottom-right-radius: 50% var(--curve);
   bottom: 0;
   background-color: var(--clr-primary-bg);
   z-index: -1;
@@ -179,15 +181,13 @@ a.button {
   content: "";
   background-color: var(--clr-usp-bg);
   position: absolute;
-  width: 500%;
-  aspect-ratio: 1/2;
-
-  border-bottom-left-radius: 50% 30%;
-  border-bottom-right-radius: 50% 30%;
-  left: -200%;
+  height: 100vh;
+  width: 200vw;
+  transform: translateX(-50%);
+  border-bottom-left-radius: 50% var(--curve);
+  border-bottom-right-radius: 50% var(--curve);
   bottom: 0;
   z-index: -1;
-  overflow-y: hidden;
 }
 
 .section-features ol {
