@@ -95,11 +95,12 @@ header {
 
 header a {
   line-height: 2;
+  font-weight: var(--fw-bold);
   border-bottom: 3px solid var(--clr-accent);
 }
 
 .section-hero {
-  padding: 4rem 1rem 9.75rem;
+  padding: 4rem var(--p-body-x) 9.75rem;
 }
 
 .section-hero h1 {
@@ -141,10 +142,11 @@ a.button {
   background-color: var(--clr-button-bg);
   color: var(--clr-button-text);
   font-weight: var(--fw-bold);
+  font-size: var(--fs-m);
   line-height: 2;
 }
 
-main .section-hero {
+.section-hero {
   position: relative;
   text-align: center;
   background-color: var(--clr-usp-bg);
@@ -152,7 +154,7 @@ main .section-hero {
   z-index: 1;
 }
 
-main .section-hero::before {
+.section-hero::before {
   content: "";
   position: absolute;
   width: 500%;
@@ -167,10 +169,25 @@ main .section-hero::before {
 
 .section-features {
   position: relative;
-  padding: 9.6875rem 1rem 4.5rem;
+  padding: 9.6875rem var(--p-body-x) 4.5rem;
   text-align: center;
   background-color: var(--clr-main-bg);
   z-index: 0;
+}
+
+.section-features::before {
+  content: "";
+  background-color: var(--clr-usp-bg);
+  position: absolute;
+  width: 500%;
+  aspect-ratio: 1/2;
+
+  border-bottom-left-radius: 50% 30%;
+  border-bottom-right-radius: 50% 30%;
+  left: -200%;
+  bottom: 0;
+  z-index: -1;
+  overflow-y: hidden;
 }
 
 .section-features ol {
@@ -179,28 +196,15 @@ main .section-hero::before {
   gap: 2.5rem;
 }
 
-.section-features ol::before {
-  content: "";
-  background-color: var(--clr-usp-bg);
-  position: absolute;
-  width: 500%;
-  aspect-ratio: 1/2;
-  border-bottom-left-radius: 50% 30%;
-  border-bottom-right-radius: 50% 30%;
-  left: -200%;
-  bottom: 0;
-  z-index: -1;
-}
-
 .section-features ol li {
-  font-family: var(--fnt-serif);
-  font-size: var(--fs-heading-xs);
-  font-weigh: var(--fw-semi-bold);
-  line-height: 1.8;
   counter-increment: item;
 }
 
 .section-features ol li::before {
+  font-family: var(--fnt-serif);
+  font-size: var(--fs-heading-xs);
+  font-weight: var(--fw-semi-bold);
+  line-height: 1.8;
   content: counter(item);
   display: inline-block;
   width: 3rem;
@@ -228,7 +232,7 @@ main .section-hero::before {
 }
 
 .section-announcement {
-  padding: 0 1rem;
+  padding: 0 var(--p-body-x);
   margin-top: 6.25rem;
 }
 
@@ -277,4 +281,81 @@ footer ul {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+/* TABLET */
+@media (min-width: 48rem) {
+  :root {
+    --fs-heading-l: 3.75rem;
+    --fs-heading-m: 3rem;
+
+    --p-body-y: 2rem;
+    --p-body-x: 2.5rem;
+  }
+
+  .section-hero {
+    padding: 3.5rem 9rem 12.7rem;
+  }
+
+  .section-hero .img-hero {
+    max-width: 30rem;
+  }
+
+  .section-features {
+    padding-top: 12.75rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  .section-features ol {
+    gap: 3rem;
+  }
+
+  .section-features ol li {
+    position: relative;
+    text-align: left;
+    margin-left: 5rem;
+  }
+
+  .section-features ol li::before {
+    position: absolute;
+    top: 50%;
+    left: -5rem;
+    transform: translateY(-50%);
+  }
+
+  .section-features ol li h2 {
+    margin-top: 0;
+  }
+
+  .section-announcement {
+    position: relative;
+    margin-top: 6.25rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-announcement img {
+    margin-left: 0;
+  }
+
+  .section-announcement section {
+    text-align: left;
+    padding: 3rem 3.5rem 3.5rem;
+    margin-top: 0;
+    max-width: 32.125rem;
+    margin-left: auto;
+    margin-top: -8rem;
+  }
+
+  footer {
+    margin-top: 5rem;
+    margin-bottom: 7.625rem;
+    margin-bottom: ;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 90rem) {
 }
