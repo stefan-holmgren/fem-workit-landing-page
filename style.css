@@ -296,6 +296,18 @@ footer ul {
     --p-body-x: 2.5rem;
   }
 
+  .section-hero::after {
+    content: "";
+    display: block;
+    inset: 0;
+    position: absolute;
+    background: url("./assets/images/bg-pattern-1.svg") no-repeat, url("./assets/images/bg-pattern-2.svg") no-repeat;
+    background-position: -50% 0, 100% 100%;
+
+    width: 100%;
+    height: 100%;
+  }
+
   .section-hero {
     padding: 3.5rem 9rem 12.7rem;
   }
