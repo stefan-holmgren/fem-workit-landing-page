@@ -100,6 +100,16 @@ header a {
   line-height: 2;
   font-weight: var(--fw-bold);
   border-bottom: 3px solid var(--clr-accent);
+  transition: color 0.3s;
+}
+
+*:focus {
+  outline: none;
+}
+
+header a:hover,
+header a:focus {
+  color: var(--clr-accent);
 }
 
 .section-hero {
@@ -111,6 +121,8 @@ header a {
   font-size: var(--fs-heading-l);
   font-weight: var(--fw-semi-bold);
   line-height: 1;
+  max-width: 23rem;
+  margin: auto;
 }
 
 .section-hero h1 span {
@@ -141,12 +153,20 @@ header a {
 
 a.button {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1.25rem;
   background-color: var(--clr-button-bg);
   color: var(--clr-button-text);
   font-weight: var(--fw-bold);
   font-size: var(--fs-m);
   line-height: 2;
+  transition: background-color 0.3s, color 0.3s;
+  border: 0.125rem solid var(--clr-button-bg);
+}
+
+a.button:hover,
+a.button:focus {
+  background-color: transparent;
+  color: var(--clr-button-bg);
 }
 
 .section-hero {
@@ -315,6 +335,10 @@ footer ul {
 
   .section-hero .img-hero {
     max-width: 30rem;
+  }
+
+  .section-hero h1 {
+    max-width: 35rem;
   }
 
   .section-features {
