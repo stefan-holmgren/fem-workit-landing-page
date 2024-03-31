@@ -155,7 +155,7 @@ a.button {
   background-color: var(--clr-usp-bg);
   color: var(--clr-primary-text);
   z-index: 1;
-  overflow-x: clip;
+  overflow-x: clip; /* Prevent horizontal scroll (overflow: hidden didn't stop the page from horizontally scrolling in mobile preview mode */
 }
 
 .section-hero::before {
@@ -177,7 +177,7 @@ a.button {
   text-align: center;
   background-color: var(--clr-main-bg);
   z-index: 0;
-  overflow-x: clip;
+  overflow-x: clip; /* Prevent horizontal scroll (overflow: hidden didn't stop the page from horizontally scrolling in mobile preview mode */
 }
 
 .section-features::before {
@@ -303,9 +303,10 @@ footer ul {
     position: absolute;
     background: url("./assets/images/bg-pattern-1.svg") no-repeat, url("./assets/images/bg-pattern-2.svg") no-repeat;
     background-position: -14rem 0, calc(100% + 6rem) 12rem;
-
     width: 100%;
     height: 100%;
+    /* Allow pointer events to pass through */
+    pointer-events: none;
   }
 
   .section-hero {
@@ -378,10 +379,99 @@ footer ul {
   footer {
     margin-top: 5rem;
     margin-bottom: 7.625rem;
-    margin-bottom: ;
   }
 }
 
 /* DESKTOP */
 @media (min-width: 90rem) {
+  :root {
+    --fs-heading-l: 5rem;
+    --fs-heading-m: 3.5rem;
+    --fs-heading-s: 2rem;
+    --fs-heading-xs: 1.5rem;
+    --fs-m: 1.125rem;
+    --p-body-x: 10.3125rem;
+  }
+
+  .section-hero {
+    padding-bottom: 20.375rem;
+  }
+
+  .section-hero::after {
+    background-position: -9rem 0, calc(100% + 3rem) 14rem;
+  }
+
+  .section-hero h1 {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-hero .img-hero {
+    max-width: 44.6875rem;
+  }
+
+  .section-features {
+    padding: 16rem 10rem 10.6875rem;
+  }
+
+  .section-features ol {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .section-features ol li {
+    margin: 0;
+    text-align: center;
+  }
+
+  .section-features ol li::before {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+
+  .section-features ol li h2 {
+    margin-top: 3.5rem;
+  }
+
+  .section-features ol li p {
+    margin-top: 1.75rem;
+  }
+
+  .section-announcement {
+    max-width: 70rem;
+    padding: 0;
+  }
+
+  .section-announcement img {
+    max-width: 30rem;
+  }
+
+  .section-announcement section {
+    max-width: 45.625rem;
+    padding: 4rem;
+    margin-top: -19rem;
+  }
+
+  .section-announcement section .button {
+    margin-top: 2rem;
+  }
+
+  .section-announcement section::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: url("./assets/images/bg-pattern-3.svg");
+    width: auto;
+    height: auto;
+    display: block;
+    transform: translate(-30%, 30%);
+  }
+
+  footer {
+    margin-top: 8rem;
+    margin-bottom: 6.875rem;
+  }
 }
